@@ -16,7 +16,7 @@
             width: 768px;
             height: 768px;
             margin: 20px auto;
-            background: url('Gold Points new.jpg') no-repeat center center;
+            background: url('https://i.postimg.cc/tRtcVbv0/Gold-Points-new.jpg') no-repeat center center;
             background-size: cover;
         }
         .input-field {
@@ -28,27 +28,27 @@
             font-size: 16px;
         }
         .lot {
-            top: 190px; /* الموضع العمودي */
-            right: 55px; /* الموضع الأفقي */
+            top: 130px; /* الموضع العمودي */
+            right: 70px; /* الموضع الأفقي */
         }
         .price-now {
-            top: 320px;
-            right: 60px;
+            top: 220px;
+            right: 70px;
         }
         .take-profit {
-            top: 455px;
-            right: 55px;
+            top: 310px;
+            right: 70px;
         }
         .stop-loss {
-            top: 585px;
-            right: 60px;
+            top: 400px;
+            right: 70px;
         }
         #calculate {
             position: absolute;
-            top: 750px;
-            left: 120px;
+            top: 500px;
+            right: 70px;
             padding: 10px 20px;
-            font-size: 28px;
+            font-size: 16px;
             background-color: #4CAF50;
             color: white;
             border: none;
@@ -60,13 +60,13 @@
         }
         #result {
             position: absolute;
-            top: 650px;
-            right: 45px;
+            top: 580px;
+            right: 70px;
             text-align: left;
-            font-size: 22px;
+            font-size: 18px;
             font-weight: bold;
             line-height: 1.8;
-            white-space: pre-wrap; /* لجعل النص أسفل بعض */
+            white-space: pre-wrap;
         }
     </style>
 </head>
@@ -98,7 +98,7 @@
 
             // حساب Profit Balance و Loss Balance
             const profitBalance = profitPoints * lot * 10;
-            const lossBalance = lossPoints * lot * 10 * -1; // الناتج بالسالب
+            const lossBalance = lossPoints * lot * 10 * -1;
 
             // عرض النتائج
             document.getElementById('result').textContent = `
