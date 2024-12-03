@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Points Calculation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        #container {
+            position: relative;
+            width: 768px;
+            height: 768px;
+            margin: 20px auto;
+            background: url('Gold Points new.jpg') no-repeat center center;
+            background-size: cover;
+        }
+        .input-field {
+            position: absolute;
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .lot {
+            top: 190px; /* الموضع العمودي */
+            right: 55px; /* الموضع الأفقي */
+        }
+        .price-now {
+            top: 320px;
+            right: 60px;
+        }
+        .take-profit {
+            top: 455px;
+            right: 55px;
+        }
+        .stop-loss {
+            top: 585px;
+            right: 60px;
+        }
+        #calculate {
+            position: absolute;
+            top: 750px;
+            left: 120px;
+            padding: 10px 20px;
+            font-size: 28px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #calculate:hover {
+            background-color: #45a049;
+        }
+        #result {
+            position: absolute;
+            top: 650px;
+            right: 45px;
+            text-align: left;
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 1.8;
+            white-space: pre-wrap; /* لجعل النص أسفل بعض */
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <input type="number" id="lot" class="input-field lot" placeholder="Enter Lot Value">
+        <input type="number" id="priceNow" class="input-field price-now" placeholder="Enter Price Now">
+        <input type="number" id="takeProfit" class="input-field take-profit" placeholder="Enter Take Profit Price">
+        <input type="number" id="stopLoss" class="input-field stop-loss" placeholder="Enter Stop Loss Price">
+        <button id="calculate" onclick="calculate()">Calculate</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            const lot = parseFloat(document.getElementById('lot').value);
+            const priceNow = parseFloat(document.getElementById('priceNow').value);
+            const takeProfit = parseFloat(document.getElementById('takeProfit').value);
+            const stopLoss = parseFloat(document.getElementById('stopLoss').value);
+
+            if (isNaN(lot) || isNaN(priceNow) || isNaN(takeProfit) || isNaN(stopLoss)) {
+                document.getElementById('result').textContent = "Please fill in all fields with valid numbers.";
+                return;
+            }
+
+            // العمليات الحسابية
+            const profitPoints = (takeProfit - priceNow) * 10;
+            const lossPoints = (priceNow - stopLoss) * 10;
+
+            // حساب Profit Balance و Loss Balance
+            const profitBalance = profitPoints * lot * 10;
+            const lossBalance = lossPoints * lot * 10 * -1; // الناتج بالسالب
+
+            // عرض النتائج
+            document.getElementById('result').textContent = `
+Profit Points: ${profitPoints} pips
+Loss Points: ${lossPoints} pips
+Profit Balance: $${profitBalance.toFixed(2)}
+Loss Balance: $${lossBalance.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
