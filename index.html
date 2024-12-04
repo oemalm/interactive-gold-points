@@ -89,7 +89,6 @@
 
     <script>
         function calculate() {
-            // الحصول على القيم من الحقول
             const lot = parseFloat(document.getElementById('lot').value);
             const priceNow = parseFloat(document.getElementById('priceNow').value);
             const takeProfit = parseFloat(document.getElementById('takeProfit').value);
@@ -98,10 +97,13 @@
             const errorMessage = document.getElementById('error-message');
             const result = document.getElementById('result');
 
+            console.log("Lot:", lot, "Price Now:", priceNow, "Take Profit:", takeProfit, "Stop Loss:", stopLoss);
+
             // التحقق من المدخلات
             if (isNaN(lot) || isNaN(priceNow) || isNaN(takeProfit) || isNaN(stopLoss)) {
                 errorMessage.textContent = "Please fill in all fields with valid numbers.";
                 result.textContent = ""; // إزالة أي نتيجة سابقة
+                console.error("Invalid input values");
                 return;
             }
 
@@ -112,6 +114,8 @@
             const profitPoints = (takeProfit - priceNow) * 10;
             const lossPoints = (priceNow - stopLoss) * 10;
 
+            console.log("Profit Points:", profitPoints, "Loss Points:", lossPoints);
+
             const profitBalance = profitPoints * lot * 10;
             const lossBalance = lossPoints * lot * 10 * -1;
 
@@ -121,6 +125,8 @@ Profit Points: ${profitPoints} pips
 Loss Points: ${lossPoints} pips
 Profit Balance: $${profitBalance.toFixed(2)}
 Loss Balance: $${lossBalance.toFixed(2)}`;
+
+            console.log("Profit Balance:", profitBalance, "Loss Balance:", lossBalance);
         }
     </script>
 </body>
