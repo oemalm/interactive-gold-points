@@ -89,27 +89,29 @@
 
     <script>
         function calculate() {
+            // الحصول على القيم من الحقول
             const lot = parseFloat(document.getElementById('lot').value);
             const priceNow = parseFloat(document.getElementById('priceNow').value);
             const takeProfit = parseFloat(document.getElementById('takeProfit').value);
             const stopLoss = parseFloat(document.getElementById('stopLoss').value);
+
             const errorMessage = document.getElementById('error-message');
             const result = document.getElementById('result');
 
-            // تحقق من المدخلات
+            // التحقق من المدخلات
             if (isNaN(lot) || isNaN(priceNow) || isNaN(takeProfit) || isNaN(stopLoss)) {
                 errorMessage.textContent = "Please fill in all fields with valid numbers.";
-                result.textContent = ""; // إزالة النتيجة
+                result.textContent = ""; // إزالة أي نتيجة سابقة
                 return;
             }
 
-            errorMessage.textContent = ""; // إزالة أي رسالة خطأ
+            // إعادة تعيين رسالة الخطأ
+            errorMessage.textContent = "";
 
             // العمليات الحسابية
             const profitPoints = (takeProfit - priceNow) * 10;
             const lossPoints = (priceNow - stopLoss) * 10;
 
-            // حساب Profit Balance و Loss Balance
             const profitBalance = profitPoints * lot * 10;
             const lossBalance = lossPoints * lot * 10 * -1;
 
