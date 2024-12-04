@@ -10,7 +10,6 @@
             text-align: center;
             margin: 0;
             padding: 0;
-            display: none; /* إخفاء المحتوى حتى يتم إدخال كلمة المرور */
         }
         #auth-container {
             position: absolute;
@@ -48,6 +47,7 @@
             margin-top: 10px;
         }
         #container {
+            display: none; /* إخفاء المحتوى حتى يتم إدخال كلمة المرور */
             position: relative;
             width: 768px;
             height: 768px;
@@ -134,7 +134,7 @@
             if (inputPassword === correctPassword) {
                 // إذا كانت كلمة المرور صحيحة
                 document.getElementById('auth-container').style.display = 'none';
-                document.body.style.display = 'block'; // إظهار الصفحة
+                document.getElementById('container').style.display = 'block'; // إظهار المحتوى
                 errorMessage.textContent = ''; // مسح رسالة الخطأ
             } else {
                 // إذا كانت كلمة المرور خاطئة
