@@ -16,7 +16,7 @@
             width: 768px;
             height: 768px;
             margin: 20px auto;
-            background: url('https://i.postimg.cc/tRtcVbv0/Gold-Points-new.jpg') no-repeat center center;
+            background: url('Gold Points-new.jpg') no-repeat center center;
             background-size: cover;
         }
         .input-field {
@@ -97,13 +97,10 @@
             const errorMessage = document.getElementById('error-message');
             const result = document.getElementById('result');
 
-            console.log("Lot:", lot, "Price Now:", priceNow, "Take Profit:", takeProfit, "Stop Loss:", stopLoss);
-
             // التحقق من المدخلات
             if (isNaN(lot) || isNaN(priceNow) || isNaN(takeProfit) || isNaN(stopLoss)) {
                 errorMessage.textContent = "Please fill in all fields with valid numbers.";
                 result.textContent = ""; // إزالة أي نتيجة سابقة
-                console.error("Invalid input values");
                 return;
             }
 
@@ -111,22 +108,18 @@
             errorMessage.textContent = "";
 
             // العمليات الحسابية
-            const profitPoints = (takeProfit - priceNow) * 10;
-            const lossPoints = (priceNow - stopLoss) * 10;
+            const profitPoints = ((takeProfit - priceNow) * 10).toFixed(1); // إصلاح الأرقام العشرية
+            const lossPoints = ((priceNow - stopLoss) * 10).toFixed(1); // إصلاح الأرقام العشرية
 
-            console.log("Profit Points:", profitPoints, "Loss Points:", lossPoints);
-
-            const profitBalance = profitPoints * lot * 10;
-            const lossBalance = lossPoints * lot * 10 * -1;
+            const profitBalance = (profitPoints * lot * 10).toFixed(2); // تحديد نتيجتين عشريتين
+            const lossBalance = (lossPoints * lot * 10 * -1).toFixed(2); // تحديد نتيجتين عشريتين
 
             // عرض النتائج
             result.textContent = `
 Profit Points: ${profitPoints} pips
 Loss Points: ${lossPoints} pips
-Profit Balance: $${profitBalance.toFixed(2)}
-Loss Balance: $${lossBalance.toFixed(2)}`;
-
-            console.log("Profit Balance:", profitBalance, "Loss Balance:", lossBalance);
+Profit Balance: $${profitBalance}
+Loss Balance: $${lossBalance}`;
         }
     </script>
 </body>
