@@ -10,6 +10,42 @@
             text-align: center;
             margin: 0;
             padding: 0;
+            display: none; /* إخفاء المحتوى حتى يتم إدخال كلمة المرور */
+        }
+        #auth-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+        }
+        #auth-container input[type="password"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+        #auth-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #auth-container button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
         }
         #container {
             position: relative;
@@ -72,6 +108,13 @@
     </style>
 </head>
 <body>
+    <div id="auth-container">
+        <h2>Enter Password</h2>
+        <input type="password" id="password" placeholder="Enter Password">
+        <button onclick="authenticate()">Submit</button>
+        <div id="error-message" class="error"></div>
+    </div>
+
     <div id="container">
         <input type="number" id="lot" class="input-field lot" placeholder="Enter Lot Value">
         <input type="number" id="priceNow" class="input-field price-now" placeholder="Enter Price Now">
@@ -82,6 +125,23 @@
     </div>
 
     <script>
+        const correctPassword = "12345"; // كلمة المرور الصحيحة
+
+        function authenticate() {
+            const inputPassword = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            if (inputPassword === correctPassword) {
+                // إذا كانت كلمة المرور صحيحة
+                document.getElementById('auth-container').style.display = 'none';
+                document.body.style.display = 'block'; // إظهار الصفحة
+                errorMessage.textContent = ''; // مسح رسالة الخطأ
+            } else {
+                // إذا كانت كلمة المرور خاطئة
+                errorMessage.textContent = "Incorrect Password. Please try again.";
+            }
+        }
+
         function calculate() {
             const lot = parseFloat(document.getElementById('lot').value);
             const priceNow = parseFloat(document.getElementById('priceNow').value);
