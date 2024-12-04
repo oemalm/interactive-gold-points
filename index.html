@@ -69,6 +69,11 @@
             line-height: 1.8;
             white-space: pre-wrap; /* النص يظهر أسفل بعضه */
         }
+        .error {
+            color: red;
+            font-size: 18px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -79,6 +84,7 @@
         <input type="number" id="stopLoss" class="input-field stop-loss" placeholder="Enter Stop Loss Price">
         <button id="calculate" onclick="calculate()">Calculate</button>
         <div id="result"></div>
+        <div id="error-message" class="error"></div>
     </div>
 
     <script>
@@ -87,11 +93,17 @@
             const priceNow = parseFloat(document.getElementById('priceNow').value);
             const takeProfit = parseFloat(document.getElementById('takeProfit').value);
             const stopLoss = parseFloat(document.getElementById('stopLoss').value);
+            const errorMessage = document.getElementById('error-message');
+            const result = document.getElementById('result');
 
+            // تحقق من المدخلات
             if (isNaN(lot) || isNaN(priceNow) || isNaN(takeProfit) || isNaN(stopLoss)) {
-                document.getElementById('result').textContent = "Please fill in all fields with valid numbers.";
+                errorMessage.textContent = "Please fill in all fields with valid numbers.";
+                result.textContent = ""; // إزالة النتيجة
                 return;
             }
+
+            errorMessage.textContent = ""; // إزالة أي رسالة خطأ
 
             // العمليات الحسابية
             const profitPoints = (takeProfit - priceNow) * 10;
@@ -102,11 +114,11 @@
             const lossBalance = lossPoints * lot * 10 * -1;
 
             // عرض النتائج
-            document.getElementById('result').textContent = 
+            result.textContent = `
 Profit Points: ${profitPoints} pips
 Loss Points: ${lossPoints} pips
 Profit Balance: $${profitBalance.toFixed(2)}
-Loss Balance: $${lossBalance.toFixed(2)};
+Loss Balance: $${lossBalance.toFixed(2)}`;
         }
     </script>
 </body>
