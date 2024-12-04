@@ -15,43 +15,42 @@
             position: relative;
             width: 100%; /* عرض متجاوب */
             max-width: 768px;
+            height: auto;
             margin: 20px auto;
             background: url('https://i.postimg.cc/tRtcVbv0/Gold-Points-new.jpg') no-repeat center center;
             background-size: cover;
-            height: auto;
-            aspect-ratio: 1; /* الحفاظ على النسبة بين العرض والارتفاع */
+            aspect-ratio: 1; /* الحفاظ على نسبة العرض إلى الارتفاع */
         }
         .input-field {
             position: absolute;
-            width: 15%; /* استخدام نسبة مئوية */
-            max-width: 200px;
+            width: 15%; /* عرض نسبي */
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
         }
         .lot {
-            top: 15%;
-            right: 10%;
+            top: 24.5%; /* الموضع العمودي بالنسبة للصورة */
+            right: 7%; /* الموضع الأفقي بالنسبة للصورة */
         }
         .price-now {
-            top: 25%;
-            right: 10%;
+            top: 41.5%; /* الموضع العمودي بالنسبة للصورة */
+            right: 7%; /* الموضع الأفقي بالنسبة للصورة */
         }
         .take-profit {
-            top: 40%;
-            right: 10%;
+            top: 59%; /* الموضع العمودي بالنسبة للصورة */
+            right: 7%; /* الموضع الأفقي بالنسبة للصورة */
         }
         .stop-loss {
-            top: 55%;
-            right: 10%;
+            top: 76.5%; /* الموضع العمودي بالنسبة للصورة */
+            right: 7%; /* الموضع الأفقي بالنسبة للصورة */
         }
         #calculate {
             position: absolute;
-            top: 70%;
-            right: 10%;
+            top: 93%; /* الموضع العمودي بالنسبة للصورة */
+            left: 15%; /* الموضع الأفقي بالنسبة للصورة */
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 26px;
             background-color: #4CAF50;
             color: white;
             border: none;
@@ -63,18 +62,12 @@
         }
         #result {
             position: absolute;
-            top: 80%;
-            right: 10%;
+            top: 90%; /* الموضع العمودي بالنسبة للصورة */
+            right: 7%; /* الموضع الأفقي بالنسبة للصورة */
             text-align: left;
-            font-size: 18px;
-            font-weight: bold;
+            font-size: 22px;
             line-height: 1.8;
             white-space: pre-wrap; /* لجعل النص أسفل بعض */
-        }
-        @media (max-width: 768px) {
-            .input-field {
-                width: 30%; /* عرض أصغر على الشاشات الصغيرة */
-            }
         }
     </style>
 </head>
