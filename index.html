@@ -22,11 +22,11 @@
         }
         .input-field {
             position: absolute;
-            width: 15%; /* تصغير عرض الحقول */
-            padding: 6px; /* تقليل مساحة الحشو */
+            width: 12%; /* تصغير عرض الحقول أكثر */
+            padding: 4px; /* تقليل مساحة الحشو */
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 10px; /* تصغير حجم النص */
+            font-size: 8px; /* تصغير حجم النص */
             right: 10%; /* تثبيت الحقول بحيث تكون على بعد 10% من اليمين */
         }
         .lot {
@@ -46,8 +46,8 @@
             top: 90%;
             left: 50%;
             transform: translateX(-50%);
-            padding: 8px 16px; /* تصغير الأزرار */
-            font-size: 14px; /* حجم أصغر للخط */
+            padding: 6px 12px; /* تقليل حجم الزر */
+            font-size: 12px; /* تصغير حجم النص */
             background-color: #4CAF50;
             color: white;
             border: none;
@@ -63,27 +63,27 @@
             left: 5%;
             right: 5%;
             text-align: left;
-            font-size: 14px; /* تقليل حجم النص */
+            font-size: 12px; /* تقليل حجم النص */
             line-height: 1.5;
         }
         .error {
             color: red;
-            font-size: 12px; /* تصغير الخط للأخطاء */
+            font-size: 10px; /* تصغير الخط للأخطاء */
             margin-top: 5px;
         }
         /* تصميم خاص للأجهزة الصغيرة */
         @media (max-width: 600px) {
             .input-field {
-                width: 25%; /* عرض أصغر للأجهزة الصغيرة */
-                font-size: 8px; /* تصغير النص */
-                right: 10%; /* الاحتفاظ بنفس الإزاحة */
+                width: 20%; /* تصغير عرض الحقول أكثر للأجهزة الصغيرة */
+                font-size: 6px; /* تصغير النص داخل الحقول */
+                padding: 3px; /* تقليل الحشو */
             }
             #calculate {
-                font-size: 12px; /* حجم أصغر للنص */
-                padding: 6px 12px; /* تصغير حجم الزر */
+                font-size: 10px; /* حجم أصغر للنص */
+                padding: 4px 8px; /* تصغير حجم الزر */
             }
             #result {
-                font-size: 12px; /* حجم أصغر للنص */
+                font-size: 10px; /* حجم أصغر للنص */
             }
         }
     </style>
