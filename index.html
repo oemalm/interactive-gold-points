@@ -13,21 +13,21 @@
         }
         #container {
             position: relative;
-            width: 90%; /* الحاوية تصبح مرنة حسب العرض */
-            max-width: 600px; /* الحد الأقصى للحجم */
-            aspect-ratio: 1 / 1; /* الحفاظ على النسبة بين العرض والارتفاع */
+            width: 90%;
+            max-width: 600px;
+            aspect-ratio: 1 / 1;
             margin: 10px auto;
             background: url('Gold Points-new.jpg') no-repeat center center;
             background-size: cover;
         }
         .input-field {
             position: absolute;
-            width: 12%; /* تصغير عرض الحقول أكثر */
-            padding: 4px; /* تقليل مساحة الحشو */
+            width: 12%;
+            padding: 4px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 8px; /* تصغير حجم النص */
-            right: 10%; /* تثبيت الحقول بحيث تكون على بعد 10% من اليمين */
+            font-size: 8px;
+            right: 10%;
         }
         .lot {
             top: 25%;
@@ -44,10 +44,9 @@
         #calculate {
             position: absolute;
             top: 90%;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 6px 12px; /* تقليل حجم الزر */
-            font-size: 12px; /* تصغير حجم النص */
+            left: 10%;
+            padding: 6px 12px;
+            font-size: 12px;
             background-color: #4CAF50;
             color: white;
             border: none;
@@ -59,31 +58,29 @@
         }
         #result {
             position: absolute;
-            top: 88%;
-            left: 5%;
-            right: 5%;
+            top: 90%;
+            left: 40%;
             text-align: left;
-            font-size: 12px; /* تقليل حجم النص */
-            line-height: 1.5;
+            font-size: 12px;
+            line-height: 1.8;
         }
         .error {
             color: red;
-            font-size: 10px; /* تصغير الخط للأخطاء */
+            font-size: 10px;
             margin-top: 5px;
         }
-        /* تصميم خاص للأجهزة الصغيرة */
         @media (max-width: 600px) {
             .input-field {
-                width: 20%; /* تصغير عرض الحقول أكثر للأجهزة الصغيرة */
-                font-size: 6px; /* تصغير النص داخل الحقول */
-                padding: 3px; /* تقليل الحشو */
+                width: 20%;
+                font-size: 6px;
+                padding: 3px;
             }
             #calculate {
-                font-size: 10px; /* حجم أصغر للنص */
-                padding: 4px 8px; /* تصغير حجم الزر */
+                font-size: 10px;
+                padding: 4px 8px;
             }
             #result {
-                font-size: 10px; /* حجم أصغر للنص */
+                font-size: 10px;
             }
         }
     </style>
@@ -120,17 +117,17 @@
             errorMessage.textContent = "";
 
             // العمليات الحسابية
-            const profitPoints = ((takeProfit - priceNow) * 10).toFixed(1); // إصلاح الأرقام العشرية
-            const lossPoints = ((priceNow - stopLoss) * 10).toFixed(1); // إصلاح الأرقام العشرية
+            const profitPoints = ((takeProfit - priceNow) * 10).toFixed(1);
+            const lossPoints = ((priceNow - stopLoss) * 10).toFixed(1);
 
-            const profitBalance = (profitPoints * lot * 10).toFixed(2); // تحديد نتيجتين عشريتين
-            const lossBalance = (lossPoints * lot * 10 * -1).toFixed(2); // تحديد نتيجتين عشريتين
+            const profitBalance = (profitPoints * lot * 10).toFixed(2);
+            const lossBalance = (lossPoints * lot * 10 * -1).toFixed(2);
 
-            // عرض النتائج
-            result.textContent = `
-Profit Points: ${profitPoints} pips
-Loss Points: ${lossPoints} pips
-Profit Balance: $${profitBalance}
+            // عرض النتائج تحت بعضها وبجانب الزر
+            result.innerHTML = `
+Profit Points: ${profitPoints} pips<br>
+Loss Points: ${lossPoints} pips<br>
+Profit Balance: $${profitBalance}<br>
 Loss Balance: $${lossBalance}`;
         }
     </script>
