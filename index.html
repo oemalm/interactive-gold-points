@@ -13,66 +13,81 @@
         }
         #container {
             position: relative;
-            width: 768px;
-            height: 768px;
+            width: 90%; /* النسبة المئوية تجعل التصميم مرنًا */
+            max-width: 768px; /* الحد الأقصى للعرض */
+            aspect-ratio: 1 / 1; /* الحفاظ على نسبة العرض إلى الارتفاع */
             margin: 20px auto;
             background: url('Gold Points-new.jpg') no-repeat center center;
             background-size: cover;
         }
         .input-field {
             position: absolute;
-            width: 200px;
+            width: 40%; /* نسبة مئوية تجعل الحقول تتناسب مع العرض */
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 14px;
         }
         .lot {
-            top: 190px;
-            right: 55px;
+            top: 25%; /* النسب المئوية تستخدم لوضع الحقول */
+            right: 5%;
         }
         .price-now {
-            top: 320px;
-            right: 55px;
+            top: 42%;
+            right: 5%;
         }
         .take-profit {
-            top: 453px;
-            right: 55px;
+            top: 59%;
+            right: 5%;
         }
         .stop-loss {
-            top: 588px;
-            right: 55px;
+            top: 76%;
+            right: 5%;
         }
         #calculate {
             position: absolute;
-            top: 750px;
-            left: 125px;
+            top: 95%;
+            left: 50%;
+            transform: translateX(-50%);
             padding: 10px 20px;
-            font-size: 26px;
+            font-size: 18px;
             background-color: #4CAF50;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
-            white-space: pre-wrap;
         }
         #calculate:hover {
             background-color: #45a049;
         }
         #result {
             position: absolute;
-            top: 650px;
-            right: 15px;
+            top: 88%;
+            left: 5%;
+            right: 5%;
             text-align: left;
-            font-size: 24px;
-            line-height: 1.8;
-            white-space: pre-wrap; /* النص يظهر أسفل بعضه */
+            font-size: 16px;
+            line-height: 1.5;
         }
         .error {
             color: red;
-            font-size: 18px;
-            margin-top: 20px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        /* تصميم خاص للأجهزة الصغيرة */
+        @media (max-width: 600px) {
+            .input-field {
+                width: 70%; /* تكبير الحقول لتناسب الشاشات الصغيرة */
+                font-size: 12px;
+            }
+            #calculate {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+            #result {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
