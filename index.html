@@ -22,27 +22,25 @@
         }
         .input-field {
             position: absolute;
-            width: 35%; /* تقليل العرض النسبي */
+            width: 20%; /* تقليل العرض للنصف */
             padding: 8px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 12px; /* تصغير حجم الخط */
+            font-size: 12px;
+            right: 5%; /* تثبيت الحقول إلى اليمين */
+            transform: translateX(0); /* لتجنب أي انزلاق */
         }
         .lot {
-            top: 25%; /* تقليل المواضع لتحسين العرض */
-            right: 8%;
+            top: 25%;
         }
         .price-now {
             top: 42%;
-            right: 8%;
         }
         .take-profit {
             top: 59%;
-            right: 8%;
         }
         .stop-loss {
             top: 76%;
-            right: 8%;
         }
         #calculate {
             position: absolute;
@@ -77,8 +75,8 @@
         /* تصميم خاص للأجهزة الصغيرة */
         @media (max-width: 600px) {
             .input-field {
-                width: 60%; /* الحقول أعرض للأجهزة الصغيرة */
-                font-size: 10px; /* تقليل النص أكثر للشاشات الصغيرة */
+                width: 30%; /* عرض أصغر للأجهزة الصغيرة */
+                font-size: 10px; /* تصغير النص */
             }
             #calculate {
                 font-size: 12px; /* حجم أصغر للنص */
