@@ -22,32 +22,31 @@
         }
         .input-field {
             position: absolute;
-            width: 15%;
+            width: 12%;
             padding: 4px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 10px;
+            font-size: 8px;
             right: 10%;
         }
         .lot {
-            top: 20%;
+            top: 25%;
         }
         .price-now {
-            top: 35%;
+            top: 42%;
         }
         .take-profit {
-            top: 50%;
+            top: 59%;
         }
         .stop-loss {
-            top: 65%;
+            top: 76%;
         }
         #calculate {
             position: absolute;
-            top: 80%;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 8px 16px;
-            font-size: 14px;
+            top: 90%;
+            left: 10%;
+            padding: 6px 12px;
+            font-size: 12px;
             background-color: #4CAF50;
             color: white;
             border: none;
@@ -60,29 +59,28 @@
         #result {
             position: absolute;
             top: 90%;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            font-size: 14px;
+            left: 40%;
+            text-align: left;
+            font-size: 12px;
             line-height: 1.8;
         }
         .error {
             color: red;
-            font-size: 12px;
+            font-size: 10px;
             margin-top: 5px;
         }
         @media (max-width: 600px) {
             .input-field {
-                width: 25%;
-                font-size: 8px;
+                width: 20%;
+                font-size: 6px;
                 padding: 3px;
             }
             #calculate {
-                font-size: 12px;
-                padding: 6px 12px;
+                font-size: 10px;
+                padding: 4px 8px;
             }
             #result {
-                font-size: 12px;
+                font-size: 10px;
             }
         }
     </style>
@@ -125,12 +123,12 @@
             const profitBalance = (profitPoints * lot * 10).toFixed(2);
             const lossBalance = (lossPoints * lot * 10 * -1).toFixed(2);
 
-            // عرض النتائج تحت الزر
-            result.innerHTML = `
+            // عرض النتائج تحت بعضها وبجانب الزر
+            result.innerHTML = 
 Profit Points: ${profitPoints} pips<br>
 Loss Points: ${lossPoints} pips<br>
 Profit Balance: $${profitBalance}<br>
-Loss Balance: $${lossBalance}`;
+Loss Balance: $${lossBalance};
         }
     </script>
 </body>
