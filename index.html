@@ -43,8 +43,9 @@
         }
         #calculate {
             position: absolute;
-            top: 90%;
-            left: 10%;
+            top: 88%;
+            left: 50%;
+            transform: translateX(-50%);
             padding: 6px 12px;
             font-size: 12px;
             background-color: #4CAF50;
@@ -58,9 +59,10 @@
         }
         #result {
             position: absolute;
-            top: 90%;
-            left: 40%;
-            text-align: left;
+            top: 94%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
             font-size: 12px;
             line-height: 1.8;
         }
@@ -123,7 +125,7 @@
             const profitBalance = (profitPoints * lot * 10).toFixed(2);
             const lossBalance = (lossPoints * lot * 10 * -1).toFixed(2);
 
-            // عرض النتائج تحت بعضها وبجانب الزر
+            // عرض النتائج تحت الزر
             result.innerHTML = `
 Profit Points: ${profitPoints} pips<br>
 Loss Points: ${lossPoints} pips<br>
