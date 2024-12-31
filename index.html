@@ -13,42 +13,41 @@
         }
         #container {
             position: relative;
-            width: 768px;
-            height: 768px;
-            margin: 20px auto;
-            background: url('Gold Points new.jpg') no-repeat center center;
+            width: 90%;
+            max-width: 600px;
+            aspect-ratio: 1 / 1;
+            margin: 10px auto;
+            background: url('Gold Points-new.jpg') no-repeat center center;
             background-size: cover;
         }
         .input-field {
             position: absolute;
-            width: 200px;
-            padding: 10px;
+            width: 15%;
+            padding: 4px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 10px;
+            right: 10%;
         }
         .lot {
-            top: 190px; /* الموضع العمودي */
-            right: 55px; /* الموضع الأفقي */
+            top: 20%;
         }
         .price-now {
-            top: 320px;
-            right: 60px;
+            top: 35%;
         }
         .take-profit {
-            top: 455px;
-            right: 55px;
+            top: 50%;
         }
         .stop-loss {
-            top: 585px;
-            right: 60px;
+            top: 65%;
         }
         #calculate {
             position: absolute;
-            top: 750px;
-            left: 120px;
-            padding: 10px 20px;
-            font-size: 28px;
+            top: 80%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 8px 16px;
+            font-size: 14px;
             background-color: #4CAF50;
             color: white;
             border: none;
@@ -60,13 +59,31 @@
         }
         #result {
             position: absolute;
-            top: 650px;
-            right: 45px;
-            text-align: left;
-            font-size: 22px;
-            font-weight: bold;
+            top: 90%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-size: 14px;
             line-height: 1.8;
-            white-space: pre-wrap; /* لجعل النص أسفل بعض */
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        @media (max-width: 600px) {
+            .input-field {
+                width: 25%;
+                font-size: 8px;
+                padding: 3px;
+            }
+            #calculate {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+            #result {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
@@ -78,6 +95,7 @@
         <input type="number" id="stopLoss" class="input-field stop-loss" placeholder="Enter Stop Loss Price">
         <button id="calculate" onclick="calculate()">Calculate</button>
         <div id="result"></div>
+        <div id="error-message" class="error"></div>
     </div>
 
     <script>
@@ -87,25 +105,32 @@
             const takeProfit = parseFloat(document.getElementById('takeProfit').value);
             const stopLoss = parseFloat(document.getElementById('stopLoss').value);
 
+            const errorMessage = document.getElementById('error-message');
+            const result = document.getElementById('result');
+
+            // التحقق من المدخلات
             if (isNaN(lot) || isNaN(priceNow) || isNaN(takeProfit) || isNaN(stopLoss)) {
-                document.getElementById('result').textContent = "Please fill in all fields with valid numbers.";
+                errorMessage.textContent = "Please fill in all fields with valid numbers.";
+                result.textContent = ""; // إزالة أي نتيجة سابقة
                 return;
             }
 
+            // إعادة تعيين رسالة الخطأ
+            errorMessage.textContent = "";
+
             // العمليات الحسابية
-            const profitPoints = (takeProfit - priceNow) * 10;
-            const lossPoints = (priceNow - stopLoss) * 10;
+            const profitPoints = ((takeProfit - priceNow) * 10).toFixed(1);
+            const lossPoints = ((priceNow - stopLoss) * 10).toFixed(1);
 
-            // حساب Profit Balance و Loss Balance
-            const profitBalance = profitPoints * lot * 10;
-            const lossBalance = lossPoints * lot * 10 * -1; // الناتج بالسالب
+            const profitBalance = (profitPoints * lot * 10).toFixed(2);
+            const lossBalance = (lossPoints * lot * 10 * -1).toFixed(2);
 
-            // عرض النتائج
-            document.getElementById('result').textContent = `
-Profit Points: ${profitPoints} pips
-Loss Points: ${lossPoints} pips
-Profit Balance: $${profitBalance.toFixed(2)}
-Loss Balance: $${lossBalance.toFixed(2)}`;
+            // عرض النتائج تحت الزر
+            result.innerHTML = `
+Profit Points: ${profitPoints} pips<br>
+Loss Points: ${lossPoints} pips<br>
+Profit Balance: $${profitBalance}<br>
+Loss Balance: $${lossBalance}`;
         }
     </script>
 </body>
