@@ -22,32 +22,32 @@
         }
         .input-field {
             position: absolute;
-            width: 24%;
-            padding: 3px;
-            border: 5px solid #ccc;
-            border-radius: 50px;
-            font-size: 16px;
-            right: 8%;
+            width: 15%;
+            padding: 4px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 10px;
+            right: 10%;
         }
         .lot {
-            top: 24%;
+            top: 20%;
         }
         .price-now {
-            top: 41.5%;
+            top: 35%;
         }
         .take-profit {
-            top: 59%;
+            top: 50%;
         }
         .stop-loss {
-            top: 76.5%;
+            top: 65%;
         }
         #calculate {
             position: absolute;
-            top: 90%;
-            left: 25%;
+            top: 80%;
+            left: 50%;
             transform: translateX(-50%);
-            padding: 9px 25px;
-            font-size: 18px;
+            padding: 8px 16px;
+            font-size: 14px;
             background-color: #4CAF50;
             color: white;
             border: none;
@@ -59,12 +59,13 @@
         }
         #result {
             position: absolute;
-            top: 86%;
-            left: 74%;
-            transform: translateX(-35%);
+            top: 90%;
+            left: 50%;
+            transform: translateX(-50%);
             text-align: center;
             font-size: 14px;
             line-height: 1.8;
+            white-space: pre-line; /* لجعل كل ناتج على سطر */
         }
         .error {
             color: red;
@@ -126,11 +127,11 @@
             const lossBalance = (lossPoints * lot * 10 * -1).toFixed(2);
 
             // عرض النتائج تحت الزر
-            result.innerHTML = `
-Profit Points: ${profitPoints} pips<br>
-Loss Points: ${lossPoints} pips<br>
-Profit Balance: $${profitBalance}<br>
-Loss Balance: $${lossBalance}`;
+            result.innerHTML = `Profit Points: ${profitPoints} pips
+Loss Points: ${lossPoints} pips
+Profit Balance: $${profitBalance}
+Loss Balance: $${lossBalance}`.replace(/
+/g, '<br>');
         }
     </script>
 </body>
