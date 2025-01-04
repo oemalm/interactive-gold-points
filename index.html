@@ -27,27 +27,31 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 10px;
-            right: 10%;
         }
-        .lot {
-            top: 20%;
+        /* مواضع جديدة للخانات */
+        .input-field.lot {
+            top: 25%; /* الموضع العمودي */ 
+            right: 12%; /* الموضع الأفقي */ 
         }
-        .price-now {
-            top: 35%;
+        .input-field.price-now {
+            top: 42.5%; /* الموضع العمودي */ 
+            right: 12%; /* الموضع الأفقي */ 
         }
-        .take-profit {
-            top: 50%;
+        .input-field.take-profit {
+            top: 60%; /* الموضع العمودي */ 
+            right: 12%; /* الموضع الأفقي */ 
         }
-        .stop-loss {
-            top: 65%;
+        .input-field.stop-loss {
+            top: 77.5%; /* الموضع العمودي */ 
+            right: 12%; /* الموضع الأفقي */ 
         }
         #calculate {
             position: absolute;
-            top: 80%;
-            left: 50%;
+            top: 90%;
+            left: 26%;
             transform: translateX(-50%);
             padding: 8px 16px;
-            font-size: 14px;
+            font-size: 18px;
             background-color: #4CAF50;
             color: white;
             border: none;
@@ -59,7 +63,7 @@
         }
         #result {
             position: absolute;
-            top: 90%;
+            top: 105%;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
@@ -127,11 +131,7 @@
             const lossBalance = (lossPoints * lot * 10 * -1).toFixed(2);
 
             // عرض النتائج تحت الزر
-            result.innerHTML = `Profit Points: ${profitPoints} pips
-Loss Points: ${lossPoints} pips
-Profit Balance: $${profitBalance}
-Loss Balance: $${lossBalance}`.replace(/
-/g, '<br>');
+            result.innerHTML = `Profit Points: ${profitPoints} pips\nLoss Points: ${lossPoints} pips\nProfit Balance: $${profitBalance}\nLoss Balance: $${lossBalance}`;
         }
     </script>
 </body>
