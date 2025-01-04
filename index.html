@@ -130,8 +130,11 @@
             const profitBalance = (profitPoints * lot * 10).toFixed(2);
             const lossBalance = (lossPoints * lot * 10 * -1).toFixed(2);
 
-            // عرض النتائج تحت الزر
-            result.innerHTML = `Profit Points: ${profitPoints} pips\nLoss Points: ${lossPoints} pips\nProfit Balance: $${profitBalance}\nLoss Balance: $${lossBalance}`;
+            // عرض النتائج تحت الزر مع فواصل أسطر
+            result.innerHTML = `Profit Points: ${profitPoints} pips<br>
+Loss Points: ${lossPoints} pips<br>
+Profit Balance: $${profitBalance}<br>
+Loss Balance: $${lossBalance}`;
         }
     </script>
 </body>
